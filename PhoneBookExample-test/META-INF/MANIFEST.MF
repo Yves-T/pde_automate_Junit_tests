@@ -6,3 +6,4 @@ Bundle-Version: 1.0.0
 Fragment-Host: PhoneBookExample;bundle-version="[1.0.0,2.0.0)"
 Bundle-Localization: plugin
 Require-Bundle: org.junit
+Import-Package: org.junit

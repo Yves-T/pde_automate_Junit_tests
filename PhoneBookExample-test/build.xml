@@ -155,6 +155,8 @@
         <java dir="${plugin.dir}" classname="org.eclipse.equinox.launcher.Main" fork="yes" classpathref="equinox.launcher.class.path">
             <arg line="-application org.eclipse.pde.junit.runtime.uitestapplication -data ${test.reports.dir}/output/ws -dev bin -clean -consolelog -port ${pde.test.port} -testpluginname PhoneBookExample -classnames ${test.classes.list}"/>
 			<!--<arg line="-Dos win32 -Dws win32 -Darch x86"/>-->
+			<arg line="-testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader"/>
+		<arg line="-loaderpluginname org.eclipse.jdt.junit4.runtime"/>
         </java>
     </target>
 
