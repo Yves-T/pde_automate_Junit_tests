@@ -1,0 +1,82 @@
+<!-- Overall build file for the Phonebook PDE Test example plug-ins -->
+<project name="phonebook" default="help" basedir=".">
+    <property name="projects.dir"             location="${basedir}"/>
+    <property file="${projects.dir}/project.properties"/>
+    
+    <property name="test.eclipse.dir"         location="${projects.dir}/eclipse-${target.eclipse.version}/eclipse"/>
+    <property name="target.dir"               location="${projects.dir}/target"/>
+    <property name="examples.zip.file"        location="${target.dir}/PDETestExampleProjects-${target.eclipse.version}.zip"/>
+
+    <macrodef name="iterate">
+        <attribute name="target"/>
+        <sequential>
+            <ant dir="${projects.dir}/pde.test.utils" target="@{target}" inheritrefs="true"/>
+            <ant dir="${projects.dir}/PhoneBookExample" target="@{target}" inheritrefs="true"/>
+            <ant dir="${projects.dir}/PhoneBookExample-test" target="@{target}" inheritrefs="true"/>
+        </sequential>
+    </macrodef>
+
+    <target name="iterate">
+        <iterate target="${target}"/>
+    </target>
+
+    <target name="clean" depends="clean_plugins">
+        <delete dir="${target.dir}"/>
+    </target>
+
+    <target name="clean_plugins">
+        <iterate target="clean"/>
+    </target>
+
+    <target name="check_eclipse">
+        <available file="${test.eclipse.dir}" property="eclipse.installed"/>
+        <fail message="No Eclipse ${target.eclipse.version} installation for testing found, please install a version of Eclipse ${target.eclipse.version} for testing at ${test.eclipse.dir}, or specify the Eclipse ${target.eclipse.version} test installation using the -Dtest.eclipse.dir flag." unless="eclipse.installed"/>
+        <loadfile property="eclipseproduct.contents" srcFile="${test.eclipse.dir}/.eclipseproduct"/>
+       <!-- <condition property="is.compatible.eclipse.version"> <contains string="${eclipseproduct.contents}" substring="version=${target.eclipse.version}"/> </condition>
+        <fail message="Eclipse installation at ${test.eclipse.dir} is not an Eclipse ${target.eclipse.version} installation, please install a version of Eclipse ${target.eclipse.version} for testing" unless="is.compatible.eclipse.version"/>-->
+    </target>
+
+    <target name="build" depends="check_eclipse">
+        <available file="${pat.reports.dir}/${step.no}_${arg.target}" property="other.logs"/>
+        <iterate target="build"/>
+    </target>
+
+    <target name="test" depends="build">
+        <iterate target="test"/>
+    </target>
+  
+    <target name="zip_example" depends="clean">
+        <delete file="${examples.zip.file}"/>     
+        <delete dir="${target.dir}/projects"/>     
+        <mkdir dir="${target.dir}/projects"/>
+        <copy todir="${target.dir}/projects" includeemptydirs="false">
+            <fileset dir="${projects.dir}" excludes="target/**/*"/>
+        </copy>
+        <zip destfile="${examples.zip.file}">
+            <zipfileset dir="${target.dir}" includes="projects/**/*"/>
+        </zip>
+    </target>
+
+
+    <target name="help">
+        <echo>
+This is the overall Ant build file for the Phonebook PDE Test example projects.
+
+Usage:
+
+Target                      Description
+==============              ==============================================
+[default]                   Displays this message.
+
+build                       Builds the source and creates the jars for all
+                            the plugins in turn.
+
+test                        Builds and runs all the unit tests for all
+                            plugins.
+
+clean                       Cleans all the build and generated artefacts.
+        </echo>
+    </target>
+
+</project>
+

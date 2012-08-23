@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PDE Test Utilities Plug-in
+Bundle-SymbolicName: pde.test.utils; singleton:=true
+Bundle-Version: 3.3
+Bundle-Localization: plugin
+Eclipse-AutoStart: true
+Export-Package: pde.test.utils
+Require-Bundle: org.eclipse.jdt.junit,
+ org.apache.ant,
+ org.junit
