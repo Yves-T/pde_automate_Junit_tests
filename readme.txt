@@ -27,3 +27,8 @@ tests and generate a html report.
 
 
 *** this example is modified to work with eclipse 3.7 ***
+
+prerequisites:
+# eclipse-rcp-indigo-SR2-win32-x86_64 (2).zip
+# jdk-7u6-windows-i586.exe
+# JAVA_HOME : C:\Program Files\Java\jdk1.7.0_06    (64 bit version)
