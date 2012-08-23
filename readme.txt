@@ -24,3 +24,6 @@ C:\...\projects> ant test
 
 This will build the plugins and the PDE unit test fragment, run the
 tests and generate a html report.
+
+
+*** this example is modified to work with eclipse 3.7 ***
