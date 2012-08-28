@@ -46,12 +46,12 @@
             <include name="org.eclipse.equinox.preferences_*.jar"/>
 			<include name="org.eclipse.osgi_3.7.2.v20120110-1415.jar"/>
         </fileset>
-		<fileset dir="c:/eclipse_indigo_test/plugins" includes="org.eclipse.osgi_3.7.2.v20120110-1415.jar"/>
+		<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.osgi_3.7.2.v20120110-1415.jar"/>
 	<fileset dir="${test.eclipse.dir}/plugins" includes="test2.jar"/>
 	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.jdt.junit.core_3.7.0.v20110928-1453.jar"/>
 	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.jdt.junit4.runtime_1.1.200.v20110928-1453.jar"/>
 	<!--<fileset dir="${test.eclipse.dir}/plugins" includes="junit.jar"/>-->
-	<fileset dir="c:/eclipse_indigo_test/plugins/org.junit_4.8.2.v4_8_2_v20110321-1705" includes="*.jar"/>
+	<fileset dir="${test.eclipse.dir}/plugins/org.junit_4.8.2.v4_8_2_v20110321-1705" includes="*.jar"/>
 	<fileset dir="${test.eclipse.dir}/plugins/org.apache.ant_1.8.2.v20120109-1030/lib" includes="*.jar"/>
 	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.core.runtime_3.7.0.v20110110.jar"/>
 	<!-- to use IsafeRunnable core.runtime jar AND org.eclipse.equinox.common must both be on the classpath !!!!! -->
@@ -74,11 +74,11 @@
             <include name="org.eclipse.equinox.launcher_*.jar"/>
         </fileset>
 	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.core.runtime_*.jar"/>
-	<fileset dir="c:/eclipse_indigo_test/plugins" includes="org.eclipse.osgi_3.7.2.v20120110-1415.jar"/>
-	<fileset dir="c:/eclipse_indigo_test/plugins" includes="org.eclipse.osgi.services_3.3.0.v20110513.jar"/>
-	<fileset dir="c:/eclipse_indigo_test/plugins" includes="org.eclipse.osgi.util_3.2.200.v20110110.jar"/>
-	<fileset dir="c:/eclipse_indigo_test/plugins" includes="org.eclipse.equinox.launcher_1.2.0.v20110502.jar"/>
-	<fileset dir="c:/eclipse_indigo_test/plugins" includes="org.eclipse.swt_3.7.2.v3740f.jar"/>
+	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.osgi_3.7.2.v20120110-1415.jar"/>
+	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.osgi.services_3.3.0.v20110513.jar"/>
+	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.osgi.util_3.2.200.v20110110.jar"/>
+	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.equinox.launcher_1.2.0.v20110502.jar"/>
+	<fileset dir="${test.eclipse.dir}/plugins" includes="org.eclipse.swt_3.7.2.v3740f.jar"/>
 	
     </path>
 
