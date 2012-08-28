@@ -24,7 +24,7 @@
             <include name="org.eclipse.ui.workbench_*.jar"/>
             <include name="org.eclipse.jface_*.jar"/>
             <include name="org.eclipse.swt_*.jar"/>
-            <include name="org.eclipse.swt.win32.win32.x86_*.jar"/>
+            <include name="org.eclipse.swt.cocoa.macosx.x86_*.jar"/>
             <include name="org.junit_3.*/**/junit.jar"/>
 			<include name="org.junit_4.8.2.v4_8_2_v20110321-1705/junit.jar"/>
 			<include name="org.eclipse.jdt.junit.core_3.7.0.v20110928-1453.jar"/>
@@ -141,6 +141,8 @@
             <arg line="-application org.eclipse.pde.junit.runtime.uitestapplication -data ${test.reports.dir}/output/ws -dev bin -clean -consolelog -port ${pde.test.port} -testpluginname PhoneBookExample -classnames ${test.classes.list}"/>
 			<!--<arg line="-Dos win32 -Dws win32 -Darch x86"/>-->
 			<arg line="-testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader"/>
+			<!-- http://stackoverflow.com/questions/3976342/running-swt-based-cross-platform-jar-properly-on-a-mac -->
+			<arg line="-XstartOnFirstThread" />
 		<arg line="-loaderpluginname org.eclipse.jdt.junit4.runtime"/>
         </java>
     </target>
